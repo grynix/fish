@@ -184,10 +184,10 @@ else
 end
 # <<< conda initialize <<<
 
-## Starship prompt
-if status --is-interactive
-    source ("/usr/bin/starship" init fish --print-full-init | psub)
-end
+# ## Starship prompt
+# if status --is-interactive
+#     source ("/usr/bin/starship" init fish --print-full-init | psub)
+# end
 
 set -gx GOPATH $HOME/go
 set -gx PATH $PATH $GOPATH/bin

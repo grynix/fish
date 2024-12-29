@@ -1,3 +1,6 @@
+#
+fish_vi_key_bindings
+#
 ## Set values
 # Hide welcome message & ensure we are reporting fish as shell
 set fish_greeting
@@ -40,7 +43,7 @@ end
 
 
 ## Advanced command-not-found hook
-source /usr/share/doc/find-the-command/ftc.fish
+# source /usr/share/doc/find-the-command/ftc.fish
 
 
 ## Functions
@@ -185,11 +188,24 @@ end
 # <<< conda initialize <<<
 
 # ## Starship prompt
-# if status --is-interactive
-#     source ("/usr/bin/starship" init fish --print-full-init | psub)
-# end
+if status --is-interactive
+    source ("/usr/local/bin/starship" init fish --print-full-init | psub)
+end
 
 set -gx GOPATH $HOME/go
 set -gx PATH $PATH $GOPATH/bin
 
-fish_vi_key_bindings
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+set -gx GOPATH $HOME/go
+set -gx GOROOT $HOME/.go
+set -gx PATH $GOPATH/bin $PATH
+# g-install: do NOT edit, see https://github.com/stefanmaric/g
+
+
+# Add g to path
+set -x PATH $HOME/.g/bin $PATH
+set -x GOPATH $HOME/go
+set -x PATH $GOPATH/bin $PATH
